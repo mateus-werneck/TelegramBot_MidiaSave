@@ -138,7 +138,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Simple Media Saver</h3>
+  <h3 align="center">Media Saver Telegram Bot</h3>
 
   <p align="center">
     Bot do Telegram pré-configurado para baixar midias do Instagram (Posts, Reels e Stories) e Videos do Twitter
