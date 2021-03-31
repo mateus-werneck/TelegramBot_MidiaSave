@@ -1,4 +1,4 @@
-import requests, re, time, urllib, os, webbrowser, json, tempfile, shutil
+import requests, re, time, urllib, os, json, tempfile, shutil
 from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -35,7 +35,6 @@ def getTwitter(url, firefox):
                     if(re.search(r'.ts', line) != None):
                         encoded.append('https://video.twimg.com' + line)
                         tipo ='ts'
-                        break
             tempF.close()
             collection =[]
             if(tipo == 'ts'):
