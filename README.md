@@ -11,19 +11,19 @@
   <h3 align="center">Simple Media Saver</h3>
 
   <p align="center">
-    Simple Python application to save Instagram and Twitter media (Pictures, Videos, GIFs, Stories)
+    Preconfigured Telegram Bot to download Instagram (Posts, Reels and Stories) and Twitter Videos)
     <br />
     <br />
-    Aplicação em Python para salvar arquivos de mídia do Instragram e Twitter (Imagens, Videos, GIFs e Stories)
+    Bot do Telegram pré-configurado para baixar midias do Instagram (Posts, Reels e Stories) e Videos do Twitter
     <br /> 
     <a href="#português-brasil">Português Brasil</a>
     <br />
     <br />
     <br />
     ·
-    <a href="https://github.com/mateus-werneck/MidiaSave/issues">Report Bug</a>
+    <a href="https://github.com/mateus-werneck/TelegramBot_MidiaSave/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mateus-werneck/MidiaSave/issues">Request Feature</a>
+    <a href="https://github.com/mateus-werneck/TelegramBot_MidiaSave/issues">Request Feature</a>
   </p>
 </p>
 
@@ -33,7 +33,6 @@
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#Built-with">Built with</a></li>
       </ul>
@@ -42,30 +41,20 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#instalattion">Instalattion</a></li>
       </ul>
     </li>
     <li><a href="#Usage">Usage</a></li>
-    <li><a href="#things-to-do">Things to do</a></li>
     <li><a href="#português-brasil">Português Brasil</a></li>
   </ol>
 </details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-![image](https://user-images.githubusercontent.com/25112157/112511254-03d45500-8d71-11eb-8db3-434f291b0869.png)
-
-
 
 
 ### Built With
 
 * [Python](https://www.python.org/)
 * [Selenium](https://www.selenium.dev/)
-* [wxPython](https://www.wxpython.org/)
+* [MoviePy](https://github.com/Zulko/moviepy)
+* [Python-Telegram-Bot](https://github.com/python-telegram-bot/python-telegram-bot)
 
 
 
@@ -84,78 +73,19 @@
 
 * Dependencies
   ```sh
-  pip install beautifulsoup4 requests selenium urllib3 wxpython moviepy natsort
+  pip install pipenv
+  ```
+  
+  ```sh
+  pipenv install requests selenium urllib3 moviepy python-telegram-bot
   ```
 
-  
-    ![image](https://user-images.githubusercontent.com/25112157/112690456-8f75e080-8e5a-11eb-93ae-322ace72991b.png)
-
-
-
-
-### Installation
-
-**Windows**
-
-1. Download the latest release
-   ```sh
-   Download MediaSaver_EN.zip on https://github.com/mateus-werneck/MidiaSave/releases
-   ```
-2. Extract it anywhere you want
-
-3. Open MediaSaver
-
-<br />
-
-**Linux**
-
-1. Install Python 
-    ```sh
-    sudo apt install python3.9
-     ```
-2. Install geckdriver(Selenium)
-    ```sh
-    https://github.com/mozilla/geckodriver/releases
-     ```
-3. Clone the repository
-     ```sh
-    git clone  https://github.com/mateus-werneck/MidiaSave.git
-     ```
-4. Open the directory
-    ```sh
-    cd MidiaSave
-     ```
-5. Execute MediaSaver
-   ```sh
-    python3 MediaSaverEN.py
-    ```
-6.Create an Alias (Optional)
-
-   ```sh
-    1. sudo nano ~/.bash_aliases  2.Then type: alias mediasave='python3 ~/MidiaSave/MediaSaverEN.py'  3. Save file  4. source ~/.bash_aliases
-   ```
-
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
-![image](https://user-images.githubusercontent.com/25112157/112512332-0aaf9780-8d72-11eb-96a8-3d7bb9ffd9c8.png)
+  ```sh
+  pipenv run python telegram_bot.py
+  ```
 
-
-![image](https://user-images.githubusercontent.com/25112157/112512195-e8b61500-8d71-11eb-8bba-6aae7a0b38e3.png)
-![image](https://user-images.githubusercontent.com/25112157/112512227-f10e5000-8d71-11eb-87b0-b77f47d14946.png)
-
-
-
-![image](https://user-images.githubusercontent.com/25112157/112511549-472ec380-8d71-11eb-91ce-1a546dd89475.png)
-
-
-
-## Things to do
-
-~~1. Add Twitter video saving functionality (Only Images and Gif for now)~~
-
-2. Improvements to the UI and general stability
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -211,7 +141,7 @@
   <h3 align="center">Simple Media Saver</h3>
 
   <p align="center">
-    Aplicação em Python para salvar arquivos de mídia do Instragram e Twitter (Imagens, Videos, GIFs e Stories)
+    Bot do Telegram pré-configurado para baixar midias do Instagram (Posts, Reels e Stories) e Videos do Twitter
     <br />
     <br />
     <br />
