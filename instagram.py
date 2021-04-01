@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 ################################# Instagram Posts and Reels #########################################
 def instaPost(url, firefox, button):
-    if (auth(url, firefox, button) == True):   
+    if (auth(url, firefox, button) == True):
         firefox.get(url)
         time.sleep(1)
         html = firefox.page_source
@@ -13,7 +13,8 @@ def instaPost(url, firefox, button):
         encodedImg = re.search(r'"display_url":"(.*?)",', html)
         encodedVideo = re.search(r'"video_url":"(.*?)",', html)
         if (encodedImg == None and encodedVideo == None):
-            return False
+            decoded = ''
+            return decoded
         else:
             if (encodedVideo == None):
                 decoded = (encodedImg.group(1).replace(r"\u0026", "&"))
@@ -23,7 +24,7 @@ def instaPost(url, firefox, button):
 ############################### Instagram Stories ########################################################
 def instaStories(url, firefox, button):
     if (auth(url, firefox, button) == True):
-        firefox.get(url)   
+        firefox.get(url)
         time.sleep(5)
         view = firefox.find_element_by_class_name('sqdOP.L3NKy.y1rQx.cB_4K')
         view.click()
@@ -33,15 +34,18 @@ def instaStories(url, firefox, button):
         if (bool (len(firefox.find_elements_by_tag_name('source'))) > 0):
             video = firefox.find_element_by_tag_name('source').get_attribute("src")
             return video
-        else:
+        elif (bool (len(firefox.find_elements_by_tag_name('source'))) == 0):
             img = firefox.find_element_by_tag_name("img").get_attribute("src")
             return img
-        
-          
+        else:
+            source = ''
+            return source
+
+
 ########################### Authentication Method (Login) ####################################################
-       
+
 def auth(url, firefox, button):
-    if (button == 0):    
+    if (button == 0):
         username = 'pythonauthusr12345'
         password = 'instagramauthpass123'
         firefox.get("https://www.instagram.com/accounts/login/")
@@ -90,8 +94,8 @@ def auth(url, firefox, button):
     elif(button > 0):
         title = firefox.title
         if (title != "Login • Instagram"):
-            return True                         
-        else:  
+            return True
+        else:
             username = 'pythonauthusr12345'
             password = 'instagramauthpass123'
             firefox.get("https://www.instagram.com/accounts/login/")
@@ -131,5 +135,4 @@ def auth(url, firefox, button):
                     title = firefox.title
                     if (title == "Login • Instagram"):
                         firefox.quit()
-                        return False      
-                                 
+                        return False
