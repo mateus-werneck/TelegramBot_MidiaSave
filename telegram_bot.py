@@ -1,5 +1,5 @@
 
-import logging, time, re, shutil
+import logging, time, re, shutil, os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import telegram
 from decoding import getMedia
@@ -28,47 +28,64 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 ################################## Send Media to User  ##################################
+
 def getLink(update, context):
     global twitter, youtube
     bot = telegram.Bot(token="TOKEN")
     url =''
     url = update.message.text
     smile = u' \U0001F604'
-    
-    if(re.search('twitter', url) != None):
+
+    if re.search('twitter', url) != None or re.search('t.co', url) != None:
         bot.send_message(chat_id=update.message.chat_id, text='Isso pode demorar um pouco')
         if (getSource(url) == True):
             if (twitter != ''):
                 bot.send_document(chat_id=update.message.chat_id, document = open(twitter, 'rb'))
                 bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                 print("Salvo com Sucesso. Twitter")
-                print(update.message.chat_id)  
+                print(update.message.chat_id)
+                print(update.message.chat_id, update.message.chat.first_name)
+                os.remove('/home/mateus/Documents/Python/telegram_bot/twitter.mp4')
             else:
-                bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido')   
-    
+                bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido')
+
     elif (re.search('instagram', url) != None):
         if(getSource(url) == True):
             bot.send_video(chat_id=update.message.chat_id, video = source)
             bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
             print("Salvo com Sucesso. Instagram")
-            print(update.message.chat_id) 
-    
-    
-############################### Get Media From User Input(URL) ##################################           
+            print(update.message.chat_id, update.message.chat.first_name)
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text='Não deu certo. Verifique se a conta do Instagram é privada/fechada')
+
+    elif re.search('youtube', url) != None or re.search('youtu.be', url) != None:
+        if(getSource(url) == True):
+            for i in source:
+                bot.send_audio(chat_id=update.message.chat_id, audio = open(i, 'rb'))
+            bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
+            print("Salvo com Sucesso. Youtube")
+            print(update.message.chat_id, update.message.chat.first_name)
+            shutil.rmtree('/home/mateus/Documents/Python/telegram_bot/youtube')
+
+############################### Get Media From User Input(URL) ##################################
+
 def getSource(url):
     global source, button, twitter, youtube
     if (re.search('instagram', url) != None):
         source=getMedia(url, button)
         button += 1
-        if (source != ''):
+        if (re.search('instagram', source) != None):
             return True
         else:
             return False
-    elif (re.search('twitter', url)):
+    elif re.search('twitter', url) != None or re.search('t.co', url) != None:
         twitter = getMedia(url, button)
-        return True            
+        return True
 
-############################ Bot Main Function #########################################    
+    elif re.search('youtube', url) != None or re.search('youtu.be', url) != None:
+        source=getMedia(url, button)
+        return True
+############################ Bot Main Function #########################################
 def main():
     """Start the bot."""
     updater = Updater("TOKEN", use_context=True, request_kwargs={'read_timeout': 1000, 'connect_timeout': 1000})
