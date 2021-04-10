@@ -40,15 +40,14 @@ def getLink(update, context):
     if re.search('twitter', url) != None or re.search('t.co', url) != None:
         bot.send_message(chat_id=update.message.chat_id, text='Isso pode demorar um pouco')
         if (getSource(url, chat_id) == True):
-            if (twitter == 'inválido'):
-                    bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido. No caso de uma Imagem ou GIF você pode salvar a partir do link que você mandou logo acima')
-            elif (twitter != 'inválido' and twitter != ''):
+            if (twitter != 'inválido' and twitter != ''):
                 bot.send_document(chat_id=update.message.chat_id, document = open(twitter, 'rb'))
                 bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                 print("Salvo com Sucesso. Twitter")
                 print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
                 os.remove('/home/mateus/Documents/Python/telegram_bot/twitter.mp4')
-
+            else:
+                bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido. No caso de uma Imagem ou GIF você pode salvar a partir do link que você mandou logo acima')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido. No caso de uma Imagem ou GIF você pode salvar a partir do link que você mandou logo acima')
 
