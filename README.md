@@ -73,11 +73,11 @@
 
 * Dependencies
   ```sh
-  pip install pipenv
+  pip3 install pipenv
   ```
   
   ```sh
-  pipenv install requests selenium urllib3 moviepy python-telegram-bot
+  pipenv install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
 
 ## Usage
@@ -201,11 +201,11 @@
 * Dependências
   
    ```sh
-  pip install pipenv
+  pip3 install pipenv
   ```
   
   ```sh
-  pipenv install requests selenium urllib3 moviepy python-telegram-bot
+  pipenv install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
 
 <br />
