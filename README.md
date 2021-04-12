@@ -83,7 +83,7 @@
 ## Usage
 
   ```sh
-  pipenv run python telegram_bot.py
+  pipenv run python3 telegram_bot.py
   ```
 
 
@@ -213,7 +213,7 @@
 ## Como Usar
 
   ```sh
-  pipenv run python telegram_bot.py
+  pipenv run python3 telegram_bot.py
   ```
 
 
