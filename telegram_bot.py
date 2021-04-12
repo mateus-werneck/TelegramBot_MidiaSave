@@ -32,7 +32,7 @@ def error(update, context):
 
 def getLink(update, context):
     global twitter
-    bot = telegram.Bot(token="1607885096:AAHOxAFp52DAIXm7eTyWjrdGcvXyyfQeKYE")
+    bot = telegram.Bot(token="TOKEN")
     url =''
     url = update.message.text
     smile = u' \U0001F604'
@@ -105,7 +105,7 @@ def getLink(update, context):
 ############################### Get Media From User Input(URL) ##################################
 
 def getSource(url, chat_id):
-    bot = telegram.Bot(token="1607885096:AAHOxAFp52DAIXm7eTyWjrdGcvXyyfQeKYE")
+    bot = telegram.Bot(token="TOKEN")
     global source, button, twitter
 ######################################### Instagram Check #######################################
     if (re.search('instagram', url) != None):
@@ -138,7 +138,7 @@ def getSource(url, chat_id):
 ############################ Bot Main Function #########################################
 def main():
     """Start the bot."""
-    updater = Updater("1607885096:AAHOxAFp52DAIXm7eTyWjrdGcvXyyfQeKYE", use_context=True)
+    updater = Updater("TOKEN", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
