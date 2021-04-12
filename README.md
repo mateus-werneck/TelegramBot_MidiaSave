@@ -55,6 +55,7 @@
 * [Selenium](https://www.selenium.dev/)
 * [MoviePy](https://github.com/Zulko/moviepy)
 * [Python-Telegram-Bot](https://github.com/python-telegram-bot/python-telegram-bot)
+* [PyTube](https://github.com/pytube/pytube)
 
 
 
@@ -182,6 +183,7 @@
 * [Selenium](https://www.selenium.dev/)
 * [MoviePy](https://github.com/Zulko/moviepy)
 * [Python-Telegram-Bot](https://github.com/python-telegram-bot/python-telegram-bot)
+* [PyTube](https://github.com/pytube/pytube)
 
 
 
