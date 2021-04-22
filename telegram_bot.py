@@ -37,7 +37,7 @@ def error(update, context):
 
 def getLink(update, context):
     global twitter, url, chat_id, smile
-    bot = telegram.Bot(token="TOKEN)
+    bot = telegram.Bot(token="TOKEN")
     url = update.message.text
     chat_id = update.message.chat_id
 ############################################### Twitter ####################################
@@ -87,7 +87,7 @@ def getLink(update, context):
 ############################### Get Media From User Input(URL) ##################################
 
 def getSource(url, chat_id, formato):
-    bot = telegram.Bot(token="TOKEN)
+    bot = telegram.Bot(token="TOKEN")
     global source, btn, twitter
 ######################################### Instagram Check #######################################
     if (re.search('instagram', url) != None):
