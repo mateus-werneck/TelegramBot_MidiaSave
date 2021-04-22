@@ -10,7 +10,7 @@ firefox_options.add_argument("--headless")
 firefox = webdriver.Firefox(options=firefox_options)
 firefox.set_page_load_timeout(60)
 #################################### Process Media Type and Get Media #######################
-def getMedia(url, button, bot, chat_id):
+def getMedia(url, button, bot, chat_id, formato):
      url = url
      igtv = re.search('/tv/', url)
      stories = re.search('/stories/', url)
@@ -25,8 +25,8 @@ def getMedia(url, button, bot, chat_id):
 
      if (posts != None or reel != None):
         source = instaPost(url, firefox, button, bot, chat_id)
-        if (re.search('instagram', source) != None):
-          return source
+        if re.search('instagram', source) != None or re.search("IGTV", source) != None:
+            return source
         else:
             source = ''
             return source
@@ -35,7 +35,7 @@ def getMedia(url, button, bot, chat_id):
 
      elif(stories != None):
         source = instaStories(url, firefox, button, bot, chat_id)
-        if (re.search('instagram', source) != None):
+        if re.search('instagram', source) != None:
             return source
         else:
             source = ''
@@ -66,5 +66,5 @@ def getMedia(url, button, bot, chat_id):
 
      elif yt != None or yt2 != None:
         path = ''
-        path = getYou(url, bot, chat_id)
+        path = getYou(url, bot, chat_id, formato)
         return path
