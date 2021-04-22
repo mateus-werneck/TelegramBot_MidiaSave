@@ -1,22 +1,27 @@
 
 import logging, time, re, shutil, os
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler, ConversationHandler
 import telegram
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from decoding import getMedia
+
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+smile = u' \U0001F604'
 source=''
-button = 0
+btn = 0
 twitter = ''
-
+formato = ''
+url =''
+chat_id = ''
 
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Olá, me manda um link do Instagram ou Twitter que eu irei procurar para você!')
-    update.message.reply_text('Se você mandar um link e não receber seu arquivo em até 10 segundos. Por favor tente mandar mais uma vez!')
+    update.message.reply_text('Olá, me manda um link do Instagram, Twitter ou Youtube que eu irei procurar para você!')
+    update.message.reply_text('Se você mandar um link e não receber seu arquivo em até 1 minuto. Por favor tente mandar mais uma vez!')
 
 
 def help(update, context):
@@ -28,91 +33,68 @@ def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
-################################## Send Media to User  ##################################
+################################## Get link from Telegram/User ##################################
 
 def getLink(update, context):
-    global twitter
-    bot = telegram.Bot(token="TOKEN")
-    url =''
+    global twitter, url, chat_id, smile
+    bot = telegram.Bot(token="TOKEN)
     url = update.message.text
-    smile = u' \U0001F604'
     chat_id = update.message.chat_id
+############################################### Twitter ####################################
     if re.search('twitter', url) != None or re.search('t.co', url) != None:
         bot.send_message(chat_id=update.message.chat_id, text='Isso pode demorar um pouco')
-        if (getSource(url, chat_id) == True):
+        if (getSource(url, chat_id, formato) == True):
             if (twitter != 'inválido' and twitter != ''):
-                bot.send_document(chat_id=update.message.chat_id, document = open(twitter, 'rb'))
                 bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                 print("Salvo com Sucesso. Twitter")
-                print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
+                #print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
                 os.remove('/home/mateus/Documents/Python/telegram_bot/twitter.mp4')
             else:
                 bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido. No caso de uma Imagem ou GIF você pode salvar a partir do link que você mandou logo acima')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido. No caso de uma Imagem ou GIF você pode salvar a partir do link que você mandou logo acima')
+############################################### Instagram ####################################
 
     elif (re.search('instagram', url) != None):
-        if(getSource(url, chat_id) == True):
+        if(getSource(url, chat_id, formato) == True):
             if(type(source) is str):
                 if (re.search('instagram', source) != None):
                     bot.send_video(chat_id=update.message.chat_id, video = source, timeout=3600)
                     bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                     print("Salvo com Sucesso. Instagram")
-                    print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
-                elif (re.search('.mp4', source) != None):
-                    bot.send_video(chat_id=update.message.chat_id, video = open(source, 'rb'), timeout=3600)
+                    #print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
+                elif (re.search('IGTV', source) != None):
                     bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                     print("Salvo com Sucesso. Instagram")
-                    print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
-                    shutil.rmtree('/home/mateus/Documents/Python/telegram_bot/IGTV')
+                    #print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
             elif type(source) is list:
-                for path in source:
-                    bot.send_video(chat_id=update.message.chat_id, video = open (path, 'rb'), timeout=3600)
                 bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
                 print("Salvo com Sucesso. Instagram")
-                print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
-                shutil.rmtree('/home/mateus/Documents/Python/telegram_bot/IGTV')
+                #print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
                 source.clear()
-            elif(getSource(url) == -1):
-                bot.send_message(chat_id=update.message.chat_id, text='Infelizmente IGTVs não sao suportados por serem muito grandes.')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Não deu certo. Verifique se a conta do Instagram é privada/fechada')
+############################################### Youtube ####################################
 
     elif re.search('youtube', url) != None or re.search('youtu.be', url) != None:
-        bot.send_message(chat_id=update.message.chat_id, text='Isso pode levar um tempo. Aguarde...')
-        bot.send_message(chat_id=update.message.chat_id, text='Se o video for muito grande ele será dividido em partes.')
-        if(getSource(url, chat_id) == True):
-            if type(source) is str:
-                bot.send_video(chat_id=update.message.chat_id, video = open(source, 'rb'), timeout=3600)
-                bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
-                print("Salvo com Sucesso. Youtube")
-                print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
-                shutil.rmtree('/home/mateus/Documents/Python/telegram_bot/youtube')
+        buttons = [[InlineKeyboardButton("Video - MP4", callback_data = '.mp4')],
+                    [InlineKeyboardButton("Audio - MP3", callback_data ='.mp3')]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        bot.send_message(chat_id=update.message.chat_id, text='Qual formato você deseja salvar?', reply_markup = reply_markup)
 
-            elif type(source) is list:
-                for path in source:
-                    bot.send_video(chat_id=update.message.chat_id, video = open(path, 'rb'), timeout=3600)
-                bot.send_message(chat_id=update.message.chat_id, text='Pronto ' + smile)
-                print("Salvo com Sucesso. Youtube")
-                print(update.message.chat_id, update.message.chat.first_name, update.message.chat.last_name, "@" + update.message.chat.username)
-                shutil.rmtree('/home/mateus/Documents/Python/telegram_bot/youtube')
-                source.clear()
-
-            '''
-            if (re.search('mp3', source) != None):
-                bot.send_audio(chat_id=update.message.chat_id, audio = open(source, 'rb'))'''
-
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text='Parece que você mandou um link inválido.')
 ############################### Get Media From User Input(URL) ##################################
 
-def getSource(url, chat_id):
-    bot = telegram.Bot(token="TOKEN")
-    global source, button, twitter
+def getSource(url, chat_id, formato):
+    bot = telegram.Bot(token="TOKEN)
+    global source, btn, twitter
 ######################################### Instagram Check #######################################
     if (re.search('instagram', url) != None):
-        source=getMedia(url, button, bot, chat_id)
-        button += 1
+        source=getMedia(url, btn, bot, chat_id, formato='')
+        btn += 1
         if type(source) is str:
-            if (re.search('instagram', source) != None or re.search('.mp4', source) != None):
+            if (re.search('instagram', source) != None or re.search('IGTV', source) != None):
                 return True
             else:
                 return False
@@ -125,7 +107,7 @@ def getSource(url, chat_id):
                     return False
 ########################################### Twitter Check #######################################
     elif re.search('twitter', url) != None or re.search('t.co', url) != None:
-        twitter = getMedia(url, button, bot, chat_id)
+        twitter = getMedia(url, btn, bot, chat_id, formato='')
         if twitter == 'inválido':
             return False
         elif (twitter != '' and twitter != 'inválido'):
@@ -133,12 +115,30 @@ def getSource(url, chat_id):
 ######################################### Youtube Check #########################################
 
     elif re.search('youtube', url) != None or re.search('youtu.be', url) != None:
-        source=getMedia(url, button, bot, chat_id)
+        source=getMedia(url, btn, bot, chat_id, formato)
         return True
+################################## Button Check for Mp3/Mp4 #######################################################
+def button(update, CallBackContext):
+    bot = telegram.Bot(token="TOKEN")
+    global url, chat_id, formato, smile
+    query = update.callback_query
+    query.answer()
+    if (query.data == '.mp3'):
+        formato = '.mp3'
+    elif (query.data == '.mp4'):
+        formato = '.mp4'
+    bot.send_message(chat_id=chat_id, text='Isso pode levar um tempo. Aguarde...')
+    bot.send_message(chat_id=chat_id, text='Se o video for muito grande ele será dividido em partes.')
+    query.message.delete()
+    if(getSource(url, chat_id, formato) == True):
+        bot.send_message(chat_id=chat_id, text='Pronto ' + smile)
+        print("Salvo com Sucesso. Youtube")
+    else:
+        bot.send_message(chat_id=chat_id, text='Parece que você mandou um link inválido.')
 ############################ Bot Main Function #########################################
 def main():
     """Start the bot."""
-    updater = Updater("TOKEN", use_context=True)
+    updater = Updater("TOKEN")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -149,6 +149,7 @@ def main():
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, getLink))
+    dp.add_handler(CallbackQueryHandler(button))
 
     # log all errors
     dp.add_error_handler(error)
