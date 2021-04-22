@@ -73,18 +73,15 @@
 
 
 * Dependencies
-  ```sh
-  pip3 install pipenv
-  ```
   
   ```sh
-  pipenv install requests selenium urllib3 moviepy pytube python-telegram-bot
+  pip3 install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
 
 ## Usage
 
   ```sh
-  pipenv run python3 telegram_bot.py
+    python3 telegram_bot.py
   ```
 
 
@@ -202,12 +199,8 @@
 
 * Dependências
   
-   ```sh
-  pip3 install pipenv
-  ```
-  
   ```sh
-  pipenv install requests selenium urllib3 moviepy pytube python-telegram-bot
+  pip3install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
 
 <br />
@@ -215,7 +208,7 @@
 ## Como Usar
 
   ```sh
-  pipenv run python3 telegram_bot.py
+    python3 telegram_bot.py
   ```
 
 
