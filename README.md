@@ -49,7 +49,7 @@
 </details>
 
 
-### Built With
+##### Built With
 
 * [Python](https://www.python.org/)
 * [Selenium](https://www.selenium.dev/)
@@ -59,7 +59,8 @@
 
 
 
-<!-- GETTING STARTED -->
+<br />
+
 ## Getting Started
 
 ### Prerequisites
@@ -216,7 +217,7 @@
   ```
   
   ```sh
-  Baixe o geckodriver.exe em https://github.com/mozilla/geckodriver e coloque na pasta do TelegramBot
+  Baixe o geckodriver.exe em https://github.com/mozilla/geckodriver e coloque na pasta TelegramBot
   ```
 
   ```sh
