@@ -83,11 +83,10 @@
   Get geckodriver.exe from https://github.com/mozilla/geckodriver and put it on TelegramBot folder
   ```
 <br />
+
 ```sh
 Get Token from @botFather on Telegram
 ```
-
-![image](https://user-images.githubusercontent.com/25112157/116261476-0fd77c00-a74e-11eb-8298-9fcadd5e8d33.png)
 
   
 ## Usage
@@ -225,7 +224,6 @@ Get Token from @botFather on Telegram
 Pegue seu Token com o @botFather no Telegram
 ```
 
-![image](https://user-images.githubusercontent.com/25112157/116261476-0fd77c00-a74e-11eb-8298-9fcadd5e8d33.png)
 
 <br />
 
