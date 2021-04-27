@@ -200,7 +200,7 @@
 * Dependências
   
   ```sh
-  pip3install requests selenium urllib3 moviepy pytube python-telegram-bot
+  pip3 install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
 
 <br />
