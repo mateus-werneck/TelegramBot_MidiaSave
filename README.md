@@ -49,7 +49,7 @@
 </details>
 
 
-##### Built With
+# Built With
 
 * [Python](https://www.python.org/)
 * [Selenium](https://www.selenium.dev/)
@@ -61,7 +61,7 @@
 
 <br />
 
-## Getting Started
+# Getting Started
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@
 
 <br />
 
-## Usage
+# Usage
 
   ```sh
     python3 telegram_bot.py
@@ -118,7 +118,7 @@
 <br />
 <br />
 
-## Português Brasil
+# Português Brasil
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
