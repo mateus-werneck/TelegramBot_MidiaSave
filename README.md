@@ -80,13 +80,13 @@
 <br />
 
   ```sh
-  Get geckodriver.exe from https://github.com/mozilla/geckodriver and put it on TelegramBot folder
+   Get geckodriver.exe from https://github.com/mozilla/geckodriver and put it on TelegramBot folder
   ```
 <br />
 
-```sh
-Get Token from @botFather on Telegram
-```
+  ```sh
+  Get Token from @botFather on Telegram
+  ```
 
   
 ## Usage
@@ -220,9 +220,9 @@ Get Token from @botFather on Telegram
   ```
 <br />
 
-```sh
-Pegue seu Token com o @botFather no Telegram
-```
+  ```sh
+  Pegue seu Token com o @botFather no Telegram
+  ```
 
 
 <br />
