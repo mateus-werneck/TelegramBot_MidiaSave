@@ -87,7 +87,7 @@
   ```
 <br />
 
-![Bot](https://user-images.githubusercontent.com/25112157/116262112-a60ba200-a74e-11eb-8070-71805f4ceeba.png)
+  ![Bot](https://user-images.githubusercontent.com/25112157/116262112-a60ba200-a74e-11eb-8070-71805f4ceeba.png)
 
 <br />
 
@@ -225,7 +225,7 @@
   ```
 <br />
 
-![Bot](https://user-images.githubusercontent.com/25112157/116262172-b1f76400-a74e-11eb-817e-e5eb4d01baef.png)
+  ![Bot](https://user-images.githubusercontent.com/25112157/116262172-b1f76400-a74e-11eb-817e-e5eb4d01baef.png)
 
 <br />
 
