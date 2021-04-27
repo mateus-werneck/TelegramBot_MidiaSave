@@ -62,7 +62,7 @@ def getMedia(url, button, bot, chat_id, formato):
         path = getTwitter(url, firefox, bot, chat_id)
         return path
 
-################ Youtube Audio ##########################################################
+################ Youtube ##########################################################
 
      elif yt != None or yt2 != None:
         path = ''
