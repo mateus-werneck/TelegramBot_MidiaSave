@@ -170,9 +170,7 @@
   <summary><h2 style="display: inline-block">Índice</h2></summary>
   <ol>
     <li>
-     <ul>
-        <li><a href="#ferramentas-utilizadas">Ferramentas Utilizadas</a></li>
-      </ul>
+        <a href="#ferramentas-utilizadas">Ferramentas Utilizadas</a>
     </li>
     <li>
       <a href="#como-começar">Como Começar</a>
