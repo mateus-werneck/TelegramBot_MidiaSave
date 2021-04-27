@@ -9,6 +9,7 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 load = u' \U0001f504'
 runner = u' \U0001f3c3'
 
+################################## Get Mp4 ################################################
 def getYou(url, bot, chat_id, formato):
     temp_dir = tempfile.mkdtemp()
     if (formato == '.mp4'):
@@ -79,6 +80,7 @@ def getYou(url, bot, chat_id, formato):
             bot.send_video(chat_id=chat_id, video = open(final_path, 'rb'), timeout=3600)
             shutil.rmtree(temp_dir)
             return final_path
+    ############################## Get MP3 #################################################
     elif formato == '.mp3':
         yt = pytube.YouTube(url).streams.filter(only_audio=True).first().download(temp_dir)
         video = glob.glob(temp_dir  + '/*.mp4')
