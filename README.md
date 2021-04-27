@@ -77,10 +77,18 @@
   ```sh
   pip3 install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
+<br />
 
-```sh
+  ```sh
   Get geckodriver.exe from https://github.com/mozilla/geckodriver and put it on TelegramBot folder
   ```
+<br />
+```sh
+Get Token from @botFather on Telegram
+```
+
+![image](https://user-images.githubusercontent.com/25112157/116261476-0fd77c00-a74e-11eb-8298-9fcadd5e8d33.png)
+
   
 ## Usage
 
@@ -206,9 +214,18 @@
   ```sh
   pip3 install requests selenium urllib3 moviepy pytube python-telegram-bot
   ```
+  <br />
+  
   ```sh
   Baixe o geckodriver.exe em https://github.com/mozilla/geckodriver e coloque na pasta do TelegramBot
   ```
+<br />
+
+```sh
+Pegue seu Token com o @botFather no Telegram
+```
+
+![image](https://user-images.githubusercontent.com/25112157/116261476-0fd77c00-a74e-11eb-8298-9fcadd5e8d33.png)
 
 <br />
 
