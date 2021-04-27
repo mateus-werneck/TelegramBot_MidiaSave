@@ -10,6 +10,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+######################### Global Variables ##################################
 smile = u' \U0001F604'
 source=''
 btn = 0
@@ -17,13 +18,14 @@ twitter = ''
 formato = ''
 url =''
 chat_id = ''
-
+##############################################################################
+################################################## Start Message #########################################
 def start(update, context):
     """Send a message when the command /start is issued."""
     update.message.reply_text('Olá, me manda um link do Instagram, Twitter ou Youtube que eu irei procurar para você!')
     update.message.reply_text('Se você mandar um link e não receber seu arquivo em até 1 minuto. Por favor tente mandar mais uma vez!')
-
-
+#####################################################################################################################################
+##################################################### Help and Error ################################################################
 def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
@@ -32,7 +34,7 @@ def help(update, context):
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
-
+###################################################################################################################################
 ################################## Get link from Telegram/User ##################################
 
 def getLink(update, context):
