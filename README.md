@@ -33,9 +33,7 @@
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li>
-      <ul>
-        <a href="#Built-with">Built with</a>
-      </ul>
+       <a href="#Built-with">Built with</a>  
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
