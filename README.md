@@ -34,13 +34,13 @@
   <ol>
     <li>
       <ul>
-        <li><a href="#Built-with">Built with</a>
+        <li><a href="#Built-with">Built with</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a>
+        <li><a href="#prerequisites">Prerequisites</a></li>
       </ul>
     </li>
     <li><a href="#Usage">Usage</a></li>
