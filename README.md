@@ -11,10 +11,10 @@
   <h3 align="center">Media Saver Telegram Bot</h3>
 
   <p align="center">
-    Preconfigured Telegram Bot to download Instagram (Posts, Reels and Stories) and Twitter Videos
+    Preconfigured Telegram Bot to download Instagram (IGTV, Posts, Reels and Stories), Twitter Videos and Youtube Videos/Audio
     <br />
     <br />
-    Bot do Telegram pré-configurado para baixar midias do Instagram (Posts, Reels e Stories) e Videos do Twitter
+    Bot do Telegram pré-configurado para baixar midias do Instagram (IGTV, Posts, Reels e Stories), Videos do Twitter e Youtube
     <br /> 
     <a href="#português-brasil">Português Brasil</a>
     <br />
@@ -153,7 +153,7 @@
   <h3 align="center">Media Saver Telegram Bot</h3>
 
   <p align="center">
-    Bot do Telegram pré-configurado para baixar midias do Instagram (Posts, Reels e Stories) e Videos do Twitter
+    Bot do Telegram pré-configurado para baixar midias do Instagram (IGTV, Posts, Reels e Stories) e Videos do Twitter e Youtube
     <br />
     <br />
     <br />
