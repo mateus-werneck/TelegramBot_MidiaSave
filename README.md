@@ -48,8 +48,9 @@
   </ol>
 </details>
 
+<br />
 
-# Built With
+## Built With
 
 * [Python](https://www.python.org/)
 * [Selenium](https://www.selenium.dev/)
@@ -61,7 +62,7 @@
 
 <br />
 
-# Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -91,7 +92,7 @@
 
 <br />
 
-# Usage
+## Usage
 
   ```sh
     python3 telegram_bot.py
@@ -187,7 +188,7 @@
 
 
 
-### Ferramentas Utilizadas
+## Ferramentas Utilizadas
 
 * [Python](https://www.python.org/)
 * [Selenium](https://www.selenium.dev/)
